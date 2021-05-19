@@ -19,9 +19,18 @@ int main() {
     Matrix<int> m1(m);
     Matrix<int> m2(n);
 
-    m2.transpose();
+    m1 = m1 + m2; // adding two matrices
+    std::cout << m1 << std::endl;
+    m1 = m1 - m2; // subtracting two matrices
+    std::cout << m1 << std::endl;
+    m1 = m1 * m2; // multiplying two matrices
+    std::cout << m1 << std::endl;
 
-    std::cout << m2 << std::endl;
+    m1.transpose();
+    std::cout << m1 << std::endl;
+
+
+
 
 
 

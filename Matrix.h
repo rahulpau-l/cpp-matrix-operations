@@ -35,6 +35,7 @@ public:
     int getRow() const;
 
     void transpose();
+    void multiplyByConstant(int c);
 
 
 };
@@ -81,8 +82,9 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &rhs) {
         throw std::domain_error("Matrices not the same size");
     }
 
+
     for(int i = 0; i < rhs.mat.size(); i++){
-        for(int j = 0; j < rhs.mat[j].size(); j++){
+        for(int j = 0; j < rhs.mat[i].size(); j++){
             this->mat[i][j] = this->mat[i][j] + rhs.mat[i][j];
         }
     }
@@ -98,7 +100,7 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &rhs) {
     }
 
     for(int i = 0; i < rhs.mat.size(); i++){
-        for(int j = 0; j < rhs.mat[j].size(); j++){
+        for(int j = 0; j < rhs.mat[i].size(); j++){
             this->mat[i][j] = this->mat[i][j] - rhs.mat[i][j];
         }
     }
@@ -179,6 +181,17 @@ std::ostream &operator<<(std::ostream &os, const Matrix<U> &rhs) {
 
     }
     return os;
+}
+
+template <typename T>
+void Matrix<T>::multiplyByConstant(int c) {
+
+    for(int i = 0; i < mat.size(); i++){
+        for(int j = 0; j < mat[i].size(); j++){
+            mat.at(i).at(j) = mat.at(j).at(i) * c;
+
+        }
+    }
 }
 
 #endif //_MATRIXX_H
