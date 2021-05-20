@@ -1,1 +1,2 @@
 # cpp-matrix-operations
+This project can do basic matrix operations such as adding and substracting, might add changes to this in the future. The main.cpp file would be an example of how you would use this.
